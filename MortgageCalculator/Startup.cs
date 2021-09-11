@@ -6,6 +6,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -31,10 +32,12 @@ namespace MortgageCalculator
         {
             if (env.IsDevelopment())
             {
+                CultureInfo.DefaultThreadCurrentCulture = new CultureInfo("en-US");
                 app.UseDeveloperExceptionPage();
             }
             else
             {
+                CultureInfo.DefaultThreadCurrentCulture = new CultureInfo("en-US");
                 app.UseExceptionHandler("/Home/Error");
                 // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
                 app.UseHsts();
